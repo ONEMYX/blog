@@ -1,0 +1,18 @@
+
+<include file="header"/>
+
+    <div class="container">
+
+      <div class="page-header">
+        <h1>{$title}</h1>
+        <p class="lead text-warning">其实并不是正义能战胜邪恶，而是历史只有正义的一方才能书写。这世间，胜的一方才永远是正义。</p>
+      </div>
+        <volist name="data" id="arr">
+            <h3>{$arr.title}<small class="">--《{$arr.writer}》</small></h3>
+            <p>{$arr.content}</p>
+            <p class="text-right"><a class="btn right" href="{:U('Index/direction')}?id={$arr.id}" role="button">阅读&raquo;</a> </p>
+        </volist>
+    </div> <!-- /container -->
+
+
+<include file="foot"/>

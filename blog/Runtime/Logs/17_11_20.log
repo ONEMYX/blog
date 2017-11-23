@@ -1,0 +1,6 @@
+[ 2017-11-20T23:48:14+08:00 ] ::1 /blog/index.php/writings/id/arr.id.html
+ERR: 无法加载控制器:Writings
+
+[ 2017-11-20T23:49:45+08:00 ] ::1 /blog/index.php/writings/id/$arr.id.html
+ERR: 无法加载控制器:Writings
+
