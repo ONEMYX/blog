@@ -48,7 +48,7 @@
                 <li class="<?php echo ($state['Home']); ?>"><a href="<?php echo U('Index/Home');?>">首页</a></li>
                 <li class="<?php echo ($state['writings']); ?>"><a href="<?php echo U('Index/Catalog');?>">文章</a></li>
                 <li class="<?php echo ($state['contact']); ?>"><a href="#contact">推荐</a></li>
-                <li class=""><a href="#">发表文章</a> </li>
+                <li class=""><a href="<?php echo U('Index/text');?>">发表文章</a> </li>
                 <?php if($state['personal'] == 'active'): ?><li class="dropdown">
                         <a href="#personal"data-toggle="dropdown" class="dropdown-toggle">个人中心<span class="caret"></span></a>
                         <ul class="dropdown-menu">

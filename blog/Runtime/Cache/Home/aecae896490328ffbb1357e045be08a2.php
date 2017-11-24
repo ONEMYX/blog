@@ -48,7 +48,7 @@
                 <li class="<?php echo ($state['Home']); ?>"><a href="<?php echo U('Index/Home');?>">首页</a></li>
                 <li class="<?php echo ($state['writings']); ?>"><a href="<?php echo U('Index/Catalog');?>">文章</a></li>
                 <li class="<?php echo ($state['contact']); ?>"><a href="#contact">推荐</a></li>
-                <li class=""id="hover_bottom" data-content="Please login first!"><a href="<?php echo U('Index/article');?>">发表文章</a> </li>
+                <li class=""><a href="<?php echo U('Index/text');?>">发表文章</a> </li>
                 <?php if($state['personal'] == 'active'): ?><li class="dropdown">
                         <a href="#personal"data-toggle="dropdown" class="dropdown-toggle">个人中心<span class="caret"></span></a>
                         <ul class="dropdown-menu">
@@ -151,12 +151,5 @@
 <script src="/blog/Public/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="/blog/Public/bootstrap/docs/assets/js/ie10-viewport-bug-workaround.js"></script>
-<script src="/blog/Public/bootstrap/js/tooltip.js"></script>
-<script src="/blog/Public/bootstrap/js/popver.js"></script>
-<script>
-    $(function (){
-        $("#hover_bottom").popover({placement:'bottom'});
-    });
-</script>
 </body>
 </html>
