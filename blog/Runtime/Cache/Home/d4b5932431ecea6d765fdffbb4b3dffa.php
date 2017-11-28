@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>A tiny, opensource, Bootstrap WYSIWYG rich text editor</title>
+    <title>YX 博客</title>
     <link href="/blog/Public/bootstrap-wysiwyg-master/external/google-code-prettify/prettify.css"rel="stylesheet">
     <link href="/blog/Public/bootstrap/dist/css/bootstrap.min.css"rel="stylesheet">
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet" />
@@ -60,8 +60,8 @@
                 <li class="<?php echo ($state['Home']); ?>"><a href="<?php echo U('Index/Home');?>">首页</a></li>
                 <li class="<?php echo ($state['writings']); ?>"><a href="<?php echo U('Index/Catalog');?>">文章</a></li>
                 <li class="<?php echo ($state['contact']); ?>"><a href="#contact">推荐</a></li>
-                <li class=""><a href="<?php echo U('Index/text');?>">发表文章</a> </li>
-                <?php if($state['personal'] == 'active'): ?><li class="dropdown">
+                <?php if($state['personal'] == 'active'): ?><li class=""><a href="<?php echo U('Index/text');?>">发表文章</a> </li>
+                    <li class="dropdown">
                         <a href="#personal"data-toggle="dropdown" class="dropdown-toggle">个人中心<span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="##">CSS3</a></li>
@@ -75,10 +75,10 @@
                     <input type="text" name="text" class="form-control" placeholder="请输入关键词" />
                 </div>
                 <button type="submit"  class="btn btn-default">搜索</button>
-                <?php if($state['personal']): ?><a class="btn btn-info" href="<?php echo U('Index/out');?>">退出</a>
+                <?php if($state['personal']): ?><a class="btn btn-info" href="<?php echo U('User/out');?>">退出</a>
                     <?php else: ?>
-                    <a class="btn btn-info" href="<?php echo U('Index/login');?>">登陆</a>
-                    <a class="btn btn-info" href="<?php echo U('Index/regist');?>">注册</a><?php endif; ?>
+                    <a class="btn btn-info" href="<?php echo U('User/login');?>">登陆</a>
+                    <a class="btn btn-info" href="<?php echo U('User/register');?>">注册</a><?php endif; ?>
             </form>
 
         </div><!-- /.nav-collapse -->

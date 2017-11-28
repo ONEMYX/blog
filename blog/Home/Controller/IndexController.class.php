@@ -43,12 +43,37 @@ class IndexController extends Controller {
             $field=array('id','title','writer','time','content');
             $a=$this->filter($a,$field);
             $this->states('writings');
+            if(!empty($_SESSION['username'])){
+                $this->assign('user',$_SESSION['username']);
+            }else{
+                $this->assign('user',null);
+            }
+//            var_dump($add);
+            $this->check_messges($add);
             $this->assign('data',$a[0]);
             $this->display('writing');
         }else{
             $this->index();
         }
-
+    }
+    protected function check_messges($where){
+        $user=M('messages');
+        $check=array();
+        $check['writer_id']=$where['id'];
+//        var_dump($check);
+        $message=$user->where($check)->select();
+//        var_dump($message);
+        if (isset($message)) {
+           $i=0;
+           while(!empty($message[$i])){
+               $message[$i]['content']=htmlspecialchars_decode($message[$i]['content']);
+               $message[$i]['lou']=$i+1;
+               $i++;
+           }
+        }else{
+            $message = "null";
+        }
+        $this->assign('messges',$message);
     }
     /*
      * state 导航栏的状态
@@ -124,31 +149,7 @@ class IndexController extends Controller {
         $this->assign('data',$data);
         $this->display('Catalog');
     }
-    public function login(){
-        if(isset($_POST['submit']) AND $_POST['submit']=='Log in'){
-            $where['username']=I('post.username');
-            $where['password']=I('post.password');
-            $User=M('user');
-            $data=$User->where($where)->select();
-            if(!!$data){
-                $_SESSION['username']=$where['username'];
-//                var_dump($_SESSION);
-//                var_dump($_COOKIE);
-//                echo 'ok';
-                $this->redirect('Index/index');
-            }else{
-                echo "<script language=\"javascript\"> alert(\"账号或密码错误\");window.history.back();window.location.reload();</script>";
-            }
-        }else{
-            $this->display('login');
-        }
-    }
-    public function out(){
-        var_dump($_SESSION);
-        $_SESSION=array();
-        session_destroy();
-        redirect('Index/index');
-    }
+
 
     /**
      * 文章发表
@@ -174,28 +175,13 @@ class IndexController extends Controller {
         }
     }
     public function ex(){
-//        $this->text1();
-//        var_dump($_POST);
-//        $a['content']=$_POST['formSubmission'];
-//        $a['content']=htmlspecialchars($a['content']);
 //        $user=M('writings');
-//        $user->where('id=8')->save($a);
-
-
-
-//        $user=M('writings');
-//        $data=$user->where('id=7')->select();
+//        $data=$user->where('id=6')->select();
 //        var_dump($data);
-//        $field=array('id','title','writer','time','content');
-//        $content=$this->filter($data,$field);
-//        var_dump($content);
-//        $content[0]['content']=str_replace('<div>','',$content[0]['content']);
-//        $content[0]['content']=str_replace('</div>','</br>',$content[0]['content']);
-//        var_dump($content);
-//        $a['content']=htmlspecialchars($content[0]['content']);
+//        $a['content']=str_replace('。','。</br>',$data[0]['content']);
 //        var_dump($a);
-//        $user->where('id=7')->save($a);
-//        $user->save($content);
+//        $a['content']=htmlspecialchars($a['content']);
+//        var_dump($a);
     }
     public function text1(){
         $_POST['formSubmission']=str_replace('<div>','',$_POST['formSubmission']);

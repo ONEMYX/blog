@@ -1,0 +1,30 @@
+[ 2017-11-26T13:41:12+08:00 ] ::1 /blog/index.php/Index/regist.html
+ERR: 非法操作:regist
+
+[ 2017-11-26T13:57:57+08:00 ] ::1 /blog/index.php/User/login.html
+ERR: 无法加载控制器:User
+
+[ 2017-11-26T13:58:12+08:00 ] ::1 /blog/index.php/User/
+ERR: 无法加载控制器:User
+
+[ 2017-11-26T14:11:23+08:00 ] ::1 /blog/index.php/User/regist.html
+ERR: 非法操作:regist
+
+[ 2017-11-26T14:11:40+08:00 ] ::1 /blog/index.php/User/register.html
+ERR: Think\Controller:dispay方法不存在！
+
+[ 2017-11-26T14:11:54+08:00 ] ::1 /blog/blog/Home/Public/CSSregister.css
+ERR: 无法加载控制器:Blog
+
+[ 2017-11-26T14:12:29+08:00 ] ::1 /blog/blog/Home/Public/CSSregister.css
+ERR: 无法加载控制器:Blog
+
+[ 2017-11-26T15:05:38+08:00 ] ::1 /blog/index.php/User/User/login
+ERR: 非法操作:User
+
+[ 2017-11-26T15:05:47+08:00 ] ::1 /blog/index.php/User/User/login
+ERR: 非法操作:User
+
+[ 2017-11-26T15:05:49+08:00 ] ::1 /blog/index.php/User/User/login
+ERR: 非法操作:User
+
