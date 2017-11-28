@@ -48,8 +48,8 @@
                 <li class="<?php echo ($state['Home']); ?>"><a href="<?php echo U('Index/Home');?>">首页</a></li>
                 <li class="<?php echo ($state['writings']); ?>"><a href="<?php echo U('Index/Catalog');?>">文章</a></li>
                 <li class="<?php echo ($state['contact']); ?>"><a href="#contact">推荐</a></li>
-                <li class=""id="hover_bottom" data-content="Please login first!"><a href="<?php echo U('Index/article');?>">发表文章</a> </li>
-                <?php if($state['personal'] == 'active'): ?><li class="dropdown">
+                <?php if($state['personal'] == 'active'): ?><li class=""><a href="<?php echo U('Index/text');?>">发表文章</a> </li>
+                    <li class="dropdown">
                         <a href="#personal"data-toggle="dropdown" class="dropdown-toggle">个人中心<span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="##">CSS3</a></li>
@@ -63,10 +63,10 @@
                     <input type="text" name="text" class="form-control" placeholder="请输入关键词" />
                 </div>
                 <button type="submit"  class="btn btn-default">搜索</button>
-                <?php if($state['personal']): ?><a class="btn btn-info" href="<?php echo U('Index/out');?>">退出</a>
+                <?php if($state['personal']): ?><a class="btn btn-info" href="<?php echo U('User/out');?>">退出</a>
                     <?php else: ?>
-                    <a class="btn btn-info" href="<?php echo U('Index/login');?>">登陆</a>
-                    <a class="btn btn-info" href="<?php echo U('Index/regist');?>">注册</a><?php endif; ?>
+                    <a class="btn btn-info" href="<?php echo U('User/login');?>">登陆</a>
+                    <a class="btn btn-info" href="<?php echo U('User/register');?>">注册</a><?php endif; ?>
             </form>
 
         </div><!-- /.nav-collapse -->
@@ -95,8 +95,59 @@
               <li><a href="<?php echo U('Index/direction');?>?Next=<?php echo ($data["id"]); ?>">Next</a></li>
             </ul>
           </nav>
+            <?php if($state['personal'] == 'active'): ?><button class="btn btn-primary pull-right " data-toggle="modal" value="12312312" name="d" data-target="#myModal">
+                    留言
+                </button><?php endif; ?>
+            <?php if($message != 'null'): ?><ul class="media-list">
+                    <?php if(is_array($messges)): $i = 0; $__LIST__ = $messges;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$arr): $mod = ($i % 2 );++$i;?><li class="media">
+                            <div class="media-left">
+                                <img src="/blog/blog/Home/Public/image/tou.jpg" class="media-object" alt="のび太" width="100" height="100">
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading"><?php echo ($arr["user"]); ?>:</h4>
+                                <p><?php echo ($arr["content"]); ?></p>
+                                <div class="pull-right">
+                                    <p><?php echo ($arr["lou"]); ?>楼&nbsp;&nbsp;<?php echo ($arr["time"]); ?>发表</p>
+                                </div>
+                            </div>
+                        </li><?php endforeach; endif; else: echo "" ;endif; ?>
+                </ul><?php endif; ?>
+
+
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                            <form method="post" action="<?php echo U('User/messages');?>" role="form">
+                                <input  value="<?php echo ($data["id"]); ?>" name="write"hidden>
+                                <h3>留言板</h3>
+                         </div>
+                        <div class="modal-body">
+                            <ul class="list-unstyled">
+                                <p>姓名：<input type="text" required=""name="user" value="<?php echo ($user); ?>" readonly/>
+                                </p>
+                                <p><textarea id='text'class="form-control" rows="3"name="message"placeholder="請發表留言"  required=""></textarea></p>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="pull-right">
+                                <p><button class="btn btn-primary">发布</button></p></div>
+                            </ul>
+                        </div>
+                        </form>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+
 
         </div><!-- /.blog-main -->
+
+
+
+
+
+
+
 
         <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
           <div class="sidebar-module sidebar-module-inset">
@@ -133,7 +184,9 @@
       </div><!-- /.row -->
     </div><!-- /.container -->
 
-
+<script>
+    $("#text").val()
+</script>
 
 <div class="container">
     <hr>
@@ -151,12 +204,5 @@
 <script src="/blog/Public/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="/blog/Public/bootstrap/docs/assets/js/ie10-viewport-bug-workaround.js"></script>
-<script src="/blog/Public/bootstrap/js/tooltip.js"></script>
-<script src="/blog/Public/bootstrap/js/popver.js"></script>
-<script>
-    $(function (){
-        $("#hover_bottom").popover({placement:'bottom'});
-    });
-</script>
 </body>
 </html>

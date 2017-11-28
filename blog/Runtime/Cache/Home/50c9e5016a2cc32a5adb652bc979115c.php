@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <!--[if lt IE 7 ]> <html lang="en" class="ie6 ielt8"> <![endif]-->
 <!--[if IE 7 ]>    <html lang="en" class="ie7 ielt8"> <![endif]-->
 <!--[if IE 8 ]>    <html lang="en" class="ie8"> <![endif]-->
@@ -6,12 +6,12 @@
 <head>
     <meta charset="utf-8">
     <title>Paper Stack</title>
-    <link rel="stylesheet" type="text/css" href="APP_CSS/login.css" />
+    <link rel="stylesheet" type="text/css" href="/blog/blog/Home/Public/CSS/login.css" />
 </head>
 <body>
 <div class="container">
     <section id="content">
-        <form method="post" action="{:U('Index/login')}">
+        <form method="post" action="<?php echo U('User/login');?>">
             <h1>Login Form</h1>
             <div>
                 <input type="text"name="username" placeholder="Username" required="" id="username" />
